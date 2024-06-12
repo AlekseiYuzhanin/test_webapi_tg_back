@@ -16,7 +16,7 @@ RUN npm install pm2 -g
 COPY . .
 
 # Выставляем порт 8080
-EXPOSE 8080
+EXPOSE 5000
 
 # Запускаем приложение через PM2
 CMD ["pm2-runtime", "main.js"]
