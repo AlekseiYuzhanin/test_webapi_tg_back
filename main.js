@@ -5,7 +5,7 @@ const cors = require('cors')
 
 require('dotenv').config()
 
-const token = process.env.TELEGRAM_TOKEN;
+const token = '7312606330:AAEQ41llrvFafwYabhdupKXkbg3j3-BJ2iM';
 const WebAppUrl = 'https://glittering-tulumba-d1e9aa.netlify.app';
 const bot = new TelegramApi(token, {polling: true});
 const app = express();
@@ -67,5 +67,5 @@ app.post('/web-data', async (req, res) => {
 
 })
 
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
