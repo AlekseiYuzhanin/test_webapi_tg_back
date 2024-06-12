@@ -5,7 +5,7 @@ const cors = require('cors')
 
 require('dotenv').config()
 
-const token = '7219679826:AAH2mKjPk0KQ2okqSQ74jQh-kfIhfO16i6w';
+const token = '6751048078:AAGE_hyaSaGxZ-4dB3GcQcW9oHB33JOGHCY';
 const WebAppUrl = 'https://glittering-tulumba-d1e9aa.netlify.app';
 const bot = new TelegramApi(token, {polling: {interval: 3000}});
 const app = express();
