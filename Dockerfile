@@ -1,21 +1,22 @@
-FROM node:20-alpine
+FROM node:18-alpine
 
-# Specify working directory
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Копируем package.json и package-lock.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Устанавливаем зависимости
+RUN npm ci --only=production
 
+# Глобально устанавливаем PM2
 RUN npm install pm2 -g
 
-# Copy source code
+# Копируем исходный код
 COPY . .
 
-# Expose port 8080
+# Выставляем порт 8080
 EXPOSE 8080
 
-# Run the app
-CMD ["npm", "start"]
+# Запускаем приложение через PM2
+CMD ["pm2-runtime", "main.js"]
