@@ -1,11 +1,15 @@
 const TelegramApi = require('node-telegram-bot-api')
 const express = require('express')
+const cors = require('cors')
 
 require('dotenv').config()
 
 const token = '6643030679:AAH7xkgdakwi3ARPbl_TBMAoYiifVzSzF88';
 const bot = new TelegramApi(token, {polling: true});
+const app = express()
 
+app.use(express.json())
+app.use(cors())
 
 let chatIdGlobal = 0;
 let globalUserName = ''
@@ -101,3 +105,7 @@ bot.on('web_app_data', async query => {
     }
 
 })
+
+const PORT = 5000
+
+app.listen(PORT, () => console.log(`Listening on ${PORT}`))
